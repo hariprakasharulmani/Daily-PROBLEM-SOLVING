@@ -1,0 +1,52 @@
+class Solution {
+    public String reorderSpaces(String text) {
+        int count = 0;
+        
+        for(int i=0;i<text.length();i++){
+            char ch = (text.charAt(i));
+            if(ch==' '){
+                count+=1;
+            }
+        }
+        text=text.trim();
+        String[] str = text.split("\\s+");
+        if(str.length==1){
+            for(int i = 0;i<count;i++){
+                text+=" ";
+            }
+            return text;
+        }
+        int total = count/(str.length-1);
+
+         //System.out.println(count);
+        // System.out.println(Arrays.toString(str));
+        // System.out.println(str.length);
+        // System.out.println(total);
+
+        String svt = "";
+        int rv = 0;
+        int space = 0;
+        //int length = str.length;
+        for(int i = 0;i<str.length;i++){
+            String s = str[i];
+            svt+=s;
+            if(i==str.length-1){
+                break;
+            }
+            while(space<total){
+                svt+=" ";
+                space+=1;
+                // rv+=1;
+            }
+            rv+=space;
+            space=0;
+            
+        }
+        //System.out.println(rv);
+        while(rv<count){
+            rv+=1;
+            svt+=" ";
+        }
+        return svt;
+    }
+}
