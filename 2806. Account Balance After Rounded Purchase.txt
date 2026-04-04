@@ -1,0 +1,17 @@
+class Solution {
+    public int accountBalanceAfterPurchase(int n) {
+        if(n==0) return 100;
+        int x = 0;
+        int y = 0;
+        if(n%10<5){
+            x=n-(n%10);
+            y=100-x;
+        }
+        if(n%10>=5){
+            int z = 10-n%10;
+            x=n+z;
+            y=100-x;
+        }
+        return y;
+    }
+}
