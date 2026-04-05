@@ -1,0 +1,11 @@
+class Solution {
+    public List<Integer> stableMountains(int[] arr, int target) {
+        List<Integer> list = new ArrayList<>();
+        for(int i=1;i<arr.length;i++){
+            if(arr[i-1]>target){
+                list.add(i);
+            }
+        }
+        return list;
+    }
+}
