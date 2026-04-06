@@ -1,0 +1,28 @@
+class Solution {
+    public boolean judgeCircle(String m) {
+        int l=0;
+        int r=0;
+        int d=0;
+        int u=0;
+        m=m.toLowerCase();
+        for(char c : m.toCharArray()){
+            if(c=='l'){
+                l++;
+                r--;
+            }
+            if(c=='u'){
+                u++;
+                d--;
+            }
+            if(c=='d'){
+                d++;
+                u--;
+            }
+            if(c=='r'){
+                r++;
+                l--;
+            }
+        }
+        return u==0 && d==0 && l==0 && r==0;
+    }
+}
