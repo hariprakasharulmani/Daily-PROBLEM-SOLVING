@@ -1,0 +1,14 @@
+class Solution {
+    public boolean isStrictlyPalindromic(int n) {
+        for(int i=2;i<=n-2;i++){
+            String x = Integer.toString(n,i);
+            if(!ispal(x)) return false; 
+        }
+        return true;
+    }
+    public static boolean ispal(String s){
+        StringBuilder sb = new StringBuilder(s);
+        sb.reverse();
+        return s.equals(sb.toString());
+    }
+}
