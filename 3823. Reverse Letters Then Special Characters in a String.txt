@@ -1,0 +1,67 @@
+class Solution {
+    public String reverseByType(String s) {
+        List<Character> ch_L = new ArrayList<>();
+        List<Character> ch_S = new ArrayList<>();
+        for(char c : s.toCharArray()){
+            if(Character.isLetter(c)){
+                ch_L.add(c);
+            }
+            else{
+                ch_S.add(c);
+            }
+        }
+        Collections.reverse(ch_L);
+        Collections.reverse(ch_S);
+
+        int i = 0;
+        int j=0;
+        StringBuilder sb = new StringBuilder();
+        for(char c : s.toCharArray()){
+            if(Character.isLetter(c)){
+                sb.append(ch_L.get(i++));
+            }
+            else{
+                sb.append(ch_S.get(j++));
+            }
+        }
+        return sb.toString();
+        // Map<Character,Character> map_L = new HashMap<>();
+        // Map<Character,Character> map_S = new HashMap<>();
+        // int l = 0;
+        // int r = ch_S.size()-1;
+        // while(l<r){
+        //     map_S.put(ch_S.get(l),ch_S.get(r));
+        //     map_S.put(ch_S.get(r),ch_S.get(l));
+        //     l++;
+        //     r--;
+        // }
+        // l=0;
+        // r = ch_L.size()-1;
+        // while(l<r){
+        //     map_L.put(ch_L.get(l),ch_L.get(r));
+        //     map_L.put(ch_L.get(r),ch_L.get(l));
+        //     l++;
+        //     r--;
+        // }
+        // StringBuilder sb = new StringBuilder();
+        // for(char c : s.toCharArray()){
+        //     for(Map.Entry<Character,Character> en1 : map_L.entrySet()){
+        //         for(Map.Entry<Character,Character> en2 : map_S.entrySet()){
+                
+        //             if(c==en1.getKey()){
+        //                 sb.append(en1.getValue());
+        //                 //break;
+        //             }
+        //             else if(c==en2.getKey()){
+        //                 sb.append(en2.getValue());
+        //                 //'break;
+        //             }
+                
+        //         }
+        //         break;
+        //     }
+        // }
+        // return sb.toString();
+
+    }
+}
