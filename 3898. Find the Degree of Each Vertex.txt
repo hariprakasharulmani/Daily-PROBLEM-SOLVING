@@ -1,0 +1,17 @@
+class Solution {
+    public int[] findDegrees(int[][] m) {
+
+        int n = m.length;
+        int [] arr = new int[n];
+        for(int i=0;i<n;i++){
+            int sum = 0;
+            for(int j=0;j<m[i].length;j++){
+                if(m[i][j]==1){
+                    sum+=1;
+                }
+            }
+            arr[i]=sum;
+        }
+        return arr;
+    }
+}
