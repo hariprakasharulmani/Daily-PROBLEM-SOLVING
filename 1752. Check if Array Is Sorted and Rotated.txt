@@ -1,0 +1,29 @@
+class Solution {
+    public boolean check(int[] nums) {
+        int[] arr = new int[nums.length];
+        for(int i=0;i<nums.length;i++) arr[i] = nums[i];
+        Arrays.sort(nums);
+        if(Arrays.equals(nums,arr)) return true;
+        for(int i=1;i<nums.length;i++){
+            i=i%nums.length;
+            int[] b = nums.clone();
+            rot(b,i);
+            if(Arrays.equals(b,arr)) return true;
+        }
+        return false;
+    }
+    public static void rot(int []num,int k){
+        rev(num,0,num.length-1);
+        rev(num,0,k-1);
+        rev(num,k,num.length-1);
+    }
+    public static void rev(int[] nums,int l,int r){
+        while(l<r){
+            int temp = nums[l];
+            nums[l] = nums[r];
+            nums[r] = temp;
+            l++;
+            r--;
+        }
+    }
+}
