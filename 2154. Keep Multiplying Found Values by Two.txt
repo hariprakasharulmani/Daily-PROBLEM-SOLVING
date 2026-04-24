@@ -1,0 +1,13 @@
+class Solution {
+    public int findFinalValue(int[] nums, int og) {
+        List<Integer> list = new ArrayList<>();
+        for(int i:nums){
+            list.add(i);
+        }
+        for(int i:list){
+            if(list.contains(og)) og*=2;
+        }
+        
+        return og;
+    }
+}
