@@ -1,0 +1,33 @@
+class Solution {
+    public boolean isSumEqual(String f, String s, String t) {
+        Map<Character,Integer> map = new HashMap<>();
+        for(int i=0;i<26;i++){
+            map.put((char) (i+97),i);
+        }
+        int f1=0;
+        for(char c : f.toCharArray()){
+            for(Map.Entry<Character,Integer> en : map.entrySet()){
+                if(c==en.getKey()){
+                    f1=f1*10+en.getValue();
+                }
+            }
+        }
+        int s1=0;
+        for(char c : s.toCharArray()){
+            for(Map.Entry<Character,Integer> en : map.entrySet()){
+                if(c==en.getKey()){
+                    s1=s1*10+en.getValue();
+                }
+            }
+        }
+        int t1=0;
+        for(char c : t.toCharArray()){
+            for(Map.Entry<Character,Integer> en : map.entrySet()){
+                if(c==en.getKey()){
+                    t1=t1*10+en.getValue();
+                }
+            }
+        }
+        return t1==s1+f1;
+    }
+}
