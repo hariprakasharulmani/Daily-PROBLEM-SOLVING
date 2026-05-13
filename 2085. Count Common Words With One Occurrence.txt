@@ -1,0 +1,26 @@
+class Solution {
+    public int countWords(String[] words1, String[] words2) {
+        Map<String,Integer> map1 = new HashMap<>();
+        Map<String,Integer> map2 = new HashMap<>();
+        for(String s : words1) map1.put(s,map1.getOrDefault(s,0)+1);
+        for(String s : words2) map2.put(s,map2.getOrDefault(s,0)+1);
+        List<String> list = new ArrayList<>();
+        for(Map.Entry<String,Integer> en : map1.entrySet()){
+            if(en.getValue()==1){
+                list.add(en.getKey());
+            }
+        }
+        for(Map.Entry<String,Integer> en : map2.entrySet()){
+            if(en.getValue()==1){
+                list.add(en.getKey());
+            }
+        }
+        Map<String,Integer> res = new HashMap<>();
+        for(String s: list) res.put(s,res.getOrDefault(s,0)+1);
+        int count = 0;
+        for(int i:res.values()){
+            if(i==2) count+=1;
+        }
+        return count;
+    }
+}
