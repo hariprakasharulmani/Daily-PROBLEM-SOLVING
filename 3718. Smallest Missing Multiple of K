@@ -1,0 +1,22 @@
+class Solution {
+    public int missingMultiple(int[] nums, int k) {
+        
+        List<Integer> mul = new ArrayList<>();
+        for(int i:nums){
+            if(i%k==0) mul.add(i);
+        }
+        List<Integer> l1 = new ArrayList<>();
+        for(int i=1;i<=100;i++){
+            l1.add(i*k);
+        }
+        if(mul.size()==l1.size()) return 101;
+        //System.out.println(mul);
+        List<Integer> res = new ArrayList<>();
+        for(int i : l1){
+            if(!mul.contains(i)) res.add(i);
+        }
+        //Collections.sort(res);
+        //System.out.print(res);
+        return res.get(0);
+    }
+}
